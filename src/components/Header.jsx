@@ -1,38 +1,44 @@
 import React, { Component } from "react";
+import { withRouter, Link } from "react-router-dom";
 
 class Header extends Component {
-  state = {};
+  //Called by onSubmit
+  submitHandler = (evt) => {
+    evt.preventDefault();
+    let { history } = this.props;
+    history.push("/search?searchText=" + this.refs.searchTf.value);
+  };
   render() {
+    //Style variable for the image
+    let imageSize = { width: "30px", paddingRight: "5px" };
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Chuck Norris Jokes
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarColor02"
-            aria-controls="navbarColor02"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
+          <img
+            src="/images/chuck-norris.png"
+            alt="Chuck Norris"
+            className="img"
+            style={imageSize}
+          ></img>
+          <a className="navbar-brand">Chuck Norris Jokes</a>
 
-          <div className="collapse navbar-collapse" id="navbarColor02">
+          <div className="navbar-collapse collapse show" id="navbarColor02">
             <ul className="navbar-nav me-auto">
               <li className="nav-item">
-                <a className="nav-link active" href="#">
+                <Link
+                  className="nav-link active"
+                  to="/"
+                  style={{ textDecoration: "none" }}
+                >
                   Home
-                </a>
+                </Link>
               </li>
             </ul>
-            <form className="d-flex">
+            <form className="d-flex" onSubmit={this.submitHandler}>
               <input
                 className="form-control me-sm-2"
-                type="text"
+                type="search"
+                ref="searchTf"
                 placeholder="Search.."
               />
             </form>
@@ -43,4 +49,4 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);
