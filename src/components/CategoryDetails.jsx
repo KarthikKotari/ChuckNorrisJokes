@@ -7,12 +7,11 @@ class CategoryDetails extends Component {
   state = { categorydetail: {} };
 
   componentDidMount() {
-    this.fetchCategories();
-    console.log("this", this.props);
+    this.fetchDetails();
   }
 
-  // Fetching categories
-  fetchCategories = () => {
+  // Fetching details
+  fetchDetails = () => {
     //Using queryString to parse here
     let detailCat = queryString.parse(this.props.history.location.search);
 
@@ -39,7 +38,7 @@ class CategoryDetails extends Component {
           <img
             className="card-img-top img-thumbnail"
             src={categorydetail.icon_url}
-            alt="Card image cap"
+            alt=""
           ></img>
           <div className="card-body">
             <h5 className="card-title">Chuck's Random Joke</h5>
