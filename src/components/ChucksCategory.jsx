@@ -1,9 +1,13 @@
 import React from "react";
+import { withRouter } from "react-router";
 
-const ChucksCategory = ({ jokeCategory }) => {
+const ChucksCategory = ({ jokeCategory, history }) => {
+  const getCategoryDetails = (detailCategory) => {
+    history.push("/details?category=" + detailCategory);
+  };
   return (
     <div className="col-md-4">
-      <div className="card">
+      <div className="card" onClick={() => getCategoryDetails(jokeCategory)}>
         <div className="card-body">
           <h5 className="card-title">{jokeCategory}</h5>
           <p className="card-text"></p>
@@ -14,4 +18,4 @@ const ChucksCategory = ({ jokeCategory }) => {
   );
 };
 
-export default ChucksCategory;
+export default withRouter(ChucksCategory);
