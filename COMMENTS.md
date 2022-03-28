@@ -8,6 +8,8 @@ A react application displaying Chuck Norris jokes
 
 We have a ChucksHome component which is the home component, that calls ChucksCategory to display the different categories of Jokes from https://api.chucknorris.io. Then, there is a detail component, which is called when one of these categories is clicked and it fetches a random joke from the category clicked on and displays it like a card. There is also a search component, which when used fetches all the matching results from the search and displays them in a new page. The app is responsive and uses a few third party, external libraries (library section).
 
+Check Flow.png for an overview.
+
 For more details on each component, check the components section.
 
 ## Components
