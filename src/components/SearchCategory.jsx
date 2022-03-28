@@ -41,6 +41,7 @@ class SearchCategory extends Component {
     const rowStyle = { margin: "10%" };
     const cardStyle = { height: "800px", margin: "2%", marginBottom: "10%" };
     const textStyle = { height: "150px" };
+    const linkStyle = { textDecoration: "none", color: "#c3d0d6" };
 
     return (
       <div className="row" style={rowStyle}>
@@ -49,7 +50,7 @@ class SearchCategory extends Component {
             <div className="card" style={cardStyle}>
               <img
                 src={jokes.icon_url}
-                alt={jokes.url}
+                alt="Chuck Norris"
                 className="card-img-top"
               ></img>
               <div className="card-body">
@@ -64,6 +65,9 @@ class SearchCategory extends Component {
                   Created:{" "}
                   {Moment(jokes.created_at).format("DD-MM-YYYY HH:mm:ss")}
                 </p>
+                <a href={jokes.url} className="card-link" style={linkStyle}>
+                  {jokes.url}
+                </a>
               </div>
             </div>
           </div>
