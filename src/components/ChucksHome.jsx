@@ -11,12 +11,14 @@ class ChucksHome extends Component {
   componentDidMount() {
     this.fetchCategories();
   }
+
   // Fetching categories
   fetchCategories = () => {
     Axios.get(`https://api.chucknorris.io/jokes/categories`)
       .then((resp) => resp.data) //When there is a response, give resp.data
       .then((categories) => this.setState({ categories }));
   };
+
   render() {
     const categoryList = this.state.categories.map((category, index) => (
       <ChucksCategory jokeCategory={category} key={index} />
